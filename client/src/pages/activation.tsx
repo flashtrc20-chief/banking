@@ -10,10 +10,12 @@ import { Loader2, Lock } from 'lucide-react';
 import { BoltTextLogo } from '@/components/bolt-logo';
 import Footer from '@/components/Footer';
 import { SecurityBadgeBar } from '@/components/SecurityBadges';
+import { ActivationSuccess } from '@/components/ActivationSuccess';
 
 export default function Activation() {
   const [activationKey, setActivationKey] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const { loginWithKey } = useAuth();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
@@ -47,17 +49,18 @@ export default function Activation() {
       
       if (success) {
         toast({
-          title: "Success",
-          description: "Activation key accepted! Accessing the platform...",
+          title: "Activation Successful",
+          description: "Your license key has been verified. Loading dashboard...",
         });
-        // Redirect to dashboard after successful activation
-        setTimeout(() => setLocation('/dashboard'), 1000);
+        setIsLoading(false);
+        setShowSuccess(true);
       } else {
         toast({
           title: "Invalid Key",
           description: "This activation key is invalid, expired, or has already been used.",
           variant: "destructive",
         });
+        setIsLoading(false);
       }
     } catch (error) {
       toast({
@@ -65,10 +68,17 @@ export default function Activation() {
         description: "An error occurred while validating your key",
         variant: "destructive",
       });
-    } finally {
       setIsLoading(false);
     }
   };
+
+  const handleActivationComplete = () => {
+    setLocation('/dashboard');
+  };
+
+  if (showSuccess) {
+    return <ActivationSuccess onComplete={handleActivationComplete} duration={40000} />;
+  }
 
   const handleKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Convert to uppercase and filter out invalid characters

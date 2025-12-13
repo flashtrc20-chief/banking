@@ -41,6 +41,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setSubscriptionStatus('active');
       return true;
     }
+    
+    // Activation key users bypass subscription check
+    if (user.id === 'activation_user' || localStorage.getItem('activation_key')) {
+      setHasActiveSubscription(true);
+      setSubscriptionStatus('active');
+      return true;
+    }
 
     try {
       const response = await fetch(`/api/subscriptions/${user.id}`, {
