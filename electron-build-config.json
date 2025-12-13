@@ -1,0 +1,32 @@
+{
+  "main": "electron/main.js",
+  "build": {
+    "appId": "com.boltcrypto.flasher",
+    "productName": "Bolt Crypto Flasher",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/**/*",
+      "server/**/*",
+      "shared/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "dist",
+        "to": "dist"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "electron/assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "asar": false
+  }
+}

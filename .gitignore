@@ -1,0 +1,40 @@
+
+# Distribution files
+*.exe
+*.tar.gz
+exe-build/
+native-app/
+portable-app/
+BoltCryptoMobile/
+dist-electron/
+dist-app/
+dist-native/
+dist-uwp/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+.vercel

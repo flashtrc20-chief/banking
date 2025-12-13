@@ -1,0 +1,21 @@
+Vercel CLI Deployment Commands - Copy and Paste
+
+1. Install Vercel CLI:
+npm install -g vercel
+
+2. Login to Vercel:
+vercel login
+
+3. Build application:
+npm run build
+
+4. Deploy to production:
+vercel --prod
+
+5. Add database environment variable:
+vercel env add DATABASE_URL
+
+6. Redeploy with database:
+vercel --prod
+
+Your platform will be live at the provided Vercel URL!

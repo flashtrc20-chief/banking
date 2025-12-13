@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" fill="#1a1a1a" rx="32"/>
+  <path d="M128 40L108 52L60 140h40L80 216l20-12l60-88h-40l28-76z" fill="#FFD700"/>
+  <text x="128" y="240" text-anchor="middle" fill="#FFD700" font-family="Arial" font-size="20" font-weight="bold">BOLT</text>
+</svg>

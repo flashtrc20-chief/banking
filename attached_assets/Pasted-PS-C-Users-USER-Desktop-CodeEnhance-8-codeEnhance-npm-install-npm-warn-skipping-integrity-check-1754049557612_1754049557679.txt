@@ -1,0 +1,169 @@
+PS C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance> npm install
+npm warn skipping integrity check for git dependency ssh://git@github.com/electron/node-gyp.git
+npm warn deprecated rimraf@2.6.3: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+npm warn cleanup Failed to remove some directories [
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\es5-ext',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\es5-ext'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\es5-ext'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\esbuild',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\esbuild'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\es5-ext',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\es5-ext'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\es5-ext'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\esbuild',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\esbuild'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\drizzle-kit\\node_modules',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\drizzle-kit\node_modules\esbuild'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\drizzle-kit\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\@esbuild-kit\\core-utils\\node_modules',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\@esbuild-kit\core-utils\node_modules\esbuild'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\@esbuild-kit\\core-utils\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\drizzle-kit',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\drizzle-kit\node_modules\esbuild'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\drizzle-kit\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\@esbuild-kit\\core-utils',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\@esbuild-kit\core-utils\node_modules\esbuild'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\@esbuild-kit\\core-utils\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\drizzle-kit',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\drizzle-kit\node_modules\esbuild'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\drizzle-kit\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\@esbuild-kit\\core-utils',
+npm warn cleanup     [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\@esbuild-kit\core-utils\node_modules\esbuild'] {
+npm warn cleanup       errno: -4082,
+npm warn cleanup       code: 'EBUSY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\@esbuild-kit\\core-utils\\node_modules\\esbuild'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\encoding\\node_modules\\iconv-lite',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\encoding\node_modules\iconv-lite\.idea'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\encoding\\node_modules\\iconv-lite\\.idea'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\date-fns',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\date-fns\locale'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\date-fns\\locale'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\web3-eth-contract',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\web3-eth-contract\node_modules'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\web3-eth-contract\\node_modules'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\@tanstack\\react-query',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\@tanstack\react-query\build'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\@tanstack\\react-query\\build'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\framer-motion',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\framer-motion'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\framer-motion'
+npm warn cleanup     }
+npm warn cleanup   ]
+npm warn cleanup ]
+npm error code 1
+npm error path C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\electron
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c node install.js
+npm error node:internal/modules/cjs/loader:519
+npm error       throw err;
+npm error       ^
+npm error
+npm error Error: Cannot find module 'C:\Users\USER\Desktop\CodeEnhance (8)\codeEnhance\node_modules\fs-extra\lib\index.js'. Please verify that the package.json has a valid "main" entry
+npm error     at tryPackage (node:internal/modules/cjs/loader:511:19)
+npm error     at Function._findPath (node:internal/modules/cjs/loader:796:18)
+npm error     at Function._resolveFilename (node:internal/modules/cjs/loader:1387:27)
+npm error     at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+npm error     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+npm error     at Function._load (node:internal/modules/cjs/loader:1211:37)
+npm error     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+npm error     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+npm error     at Module.require (node:internal/modules/cjs/loader:1487:12)
+npm error     at require (node:internal/modules/helpers:135:16) {
+npm error   code: 'MODULE_NOT_FOUND',
+npm error   path: '\\\\?\\C:\\Users\\USER\\Desktop\\CodeEnhance (8)\\codeEnhance\\node_modules\\fs-extra\\package.json',
+npm error   requestPath: 'fs-extra'
+npm error }
+npm error
+npm error Node.js v22.17.0
+npm error A complete log of this run can be found in: C:\Users\USER\AppData\Local\npm-cache\_logs\2025-08-01T11_44_51_941Z-debug-0.log

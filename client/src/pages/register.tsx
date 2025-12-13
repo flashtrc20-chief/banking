@@ -1,0 +1,224 @@
+import { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
+import { useMutation } from '@tanstack/react-query';
+import { apiRequest } from '@/lib/queryClient';
+import { Eye, EyeOff } from 'lucide-react';
+
+interface RegisterProps {
+  onRegistrationSuccess: () => void;
+  onBackToLogin: () => void;
+}
+
+export default function Register({ onRegistrationSuccess, onBackToLogin }: RegisterProps) {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    confirmPassword: '',
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { toast } = useToast();
+
+  const registerMutation = useMutation({
+    mutationFn: async (data: { username: string; email: string; firstName: string; lastName: string; password: string }) => {
+      return await apiRequest('POST', '/api/auth/register', data);
+    },
+    onSuccess: (response: any) => {
+      // Store the new user data temporarily to avoid auth issues
+      if (response.user && response.token) {
+        localStorage.setItem('auth_token', response.token);
+        localStorage.setItem('auth_user', JSON.stringify(response.user));
+      }
+      onRegistrationSuccess();
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Registration Failed",
+        description: error.message || "Failed to create account",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (formData.password !== formData.confirmPassword) {
+      toast({
+        title: "Password Mismatch",
+        description: "Passwords do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      toast({
+        title: "Password Too Short",
+        description: "Password must be at least 6 characters long",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    registerMutation.mutate({
+      username: formData.username,
+      email: formData.email,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      password: formData.password,
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 flex items-center justify-center p-4">
+      <Card className="w-full max-w-md bg-black bg-opacity-50 border border-purple-500 shadow-2xl">
+        <CardHeader className="text-center">
+          <CardTitle className="text-2xl font-bold text-white">Create Account</CardTitle>
+          <p className="text-gray-300">Join Bolt Crypto Flasher platform</p>
+          <p className="text-sm text-purple-300">* Required fields</p>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="username" className="text-white">Username *</Label>
+              <Input
+                id="username"
+                type="text"
+                value={formData.username}
+                onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                className="bg-gray-800 border-gray-600 text-white focus:border-purple-500 text-base"
+                placeholder="Choose a unique username"
+                required
+                autoComplete="username"
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-white">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="bg-gray-800 border-gray-600 text-white focus:border-purple-500 text-base"
+                placeholder="your.email@example.com"
+                autoComplete="email"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-2">
+                <Label htmlFor="firstName" className="text-white">First Name</Label>
+                <Input
+                  id="firstName"
+                  type="text"
+                  value={formData.firstName}
+                  onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                  className="bg-gray-800 border-gray-600 text-white focus:border-purple-500"
+                  placeholder="First name"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="lastName" className="text-white">Last Name</Label>
+                <Input
+                  id="lastName"
+                  type="text"
+                  value={formData.lastName}
+                  onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                  className="bg-gray-800 border-gray-600 text-white focus:border-purple-500"
+                  placeholder="Last name"
+                />
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-white">Password *</Label>
+              <div className="relative">
+                <Input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  value={formData.password}
+                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                  className="bg-gray-800 border-gray-600 text-white focus:border-purple-500 text-base pr-10"
+                  placeholder="Create a secure password"
+                  required
+                  autoComplete="new-password"
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4 text-gray-400" />
+                  ) : (
+                    <Eye className="h-4 w-4 text-gray-400" />
+                  )}
+                </Button>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword" className="text-white">Confirm Password *</Label>
+              <div className="relative">
+                <Input
+                  id="confirmPassword"
+                  type={showConfirmPassword ? "text" : "password"}
+                  value={formData.confirmPassword}
+                  onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                  className="bg-gray-800 border-gray-600 text-white focus:border-purple-500 text-base pr-10"
+                  placeholder="Confirm your password"
+                  required
+                  autoComplete="new-password"
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="h-4 w-4 text-gray-400" />
+                  ) : (
+                    <Eye className="h-4 w-4 text-gray-400" />
+                  )}
+                </Button>
+              </div>
+            </div>
+
+            <Button
+              type="submit"
+              disabled={registerMutation.isPending}
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 text-base font-medium"
+            >
+              {registerMutation.isPending ? 'Creating Account...' : 'Create Account'}
+            </Button>
+
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={onBackToLogin}
+              className="w-full text-gray-300 hover:text-white"
+            >
+              Back to Login
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

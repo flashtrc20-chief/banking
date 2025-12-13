@@ -1,0 +1,21 @@
+{
+  "name": "bolt-crypto-flasher",
+  "description": "Professional cryptocurrency flash transaction platform",
+  "build": {
+    "command": "npm run build"
+  },
+  "start": {
+    "command": "npm start"
+  },
+  "environment": {
+    "NODE_ENV": "production"
+  },
+  "healthcheck": {
+    "path": "/",
+    "interval": 30
+  },
+  "scaling": {
+    "minInstances": 1,
+    "maxInstances": 3
+  }
+}

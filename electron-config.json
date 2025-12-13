@@ -1,0 +1,12 @@
+{
+  "main": "electron/integrated-main.js",
+  "name": "bolt-flasher",
+  "version": "1.0.0",
+  "description": "Bolt Crypto Flasher - Professional Flash Transaction Gateway",
+  "author": "Bolt Flasher Team",
+  "scripts": {
+    "start": "electron electron/integrated-main.js",
+    "dist": "electron-builder"
+  },
+  "note": "This configuration mimics what would be in package.json for Electron"
+}

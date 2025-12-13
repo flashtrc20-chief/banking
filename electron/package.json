@@ -1,0 +1,63 @@
+{
+  "name": "bolt-crypto-flasher",
+  "version": "1.0.0",
+  "description": "Professional cryptocurrency flash transaction platform",
+  {
+    "main": "electron/integrated-main.js",
+    "scripts": {
+      "start": "electron electron/integrated-main.js",
+      "dist": "electron-builder"
+    }
+  }
+  "author": "Bolt Crypto Flasher",
+  "license": "MIT",
+  "homepage": "./",
+  "build": {
+    "appId": "com.boltcrypto.flasher",
+    "productName": "Bolt Crypto Flasher",
+    "directories": {
+      "output": "../dist-electron"
+    },
+    "files": [
+      "main.js",
+      "../dist/**/*",
+      "../node_modules/**/*",
+      "!../node_modules/.cache",
+      "!../node_modules/**/test",
+      "!../node_modules/**/tests"
+    ],
+    "extraResources": [
+      {
+        "from": "../shared",
+        "to": "shared"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "BoltCryptoFlasher-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Bolt Crypto Flasher"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.finance"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png",
+             "category": "Finance"
+    }
+  }
+}

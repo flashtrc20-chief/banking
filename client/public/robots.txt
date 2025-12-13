@@ -1,0 +1,34 @@
+
+User-agent: *
+Allow: /
+Crawl-delay: 0
+
+# Priority pages for indexing
+Allow: /pricing
+Allow: /features
+Allow: /send
+Allow: /about
+Allow: /contact
+Allow: /blog
+Allow: /faq
+Allow: /api-docs
+
+# Block sensitive areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/settings
+Disallow: /*.json$
+Disallow: /*?*
+
+# Googlebot specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bingbot specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Main sitemap
+Sitemap: https://boltflasher.live/sitemap.xml
