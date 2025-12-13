@@ -26,6 +26,9 @@ function createWindow() {
     backgroundColor: '#1a1a1a'
   });
 
+  // Backend URL configuration
+  const BACKEND_URL = 'https://85b1ffa3-ccc6-4071-b06d-07e8e126e0a0-00-1tqab4sds8smw.worf.replit.dev';
+  
   // Set custom menu
   const menu = Menu.buildFromTemplate([
     {
@@ -33,11 +36,11 @@ function createWindow() {
       submenu: [
         {
           label: 'Home',
-          click: () => mainWindow.loadURL('https://bolt-backend-sy4c.onrender.com/home')
+          click: () => mainWindow.loadURL(`${BACKEND_URL}/home`)
         },
         {
           label: 'Dashboard',
-          click: () => mainWindow.loadURL('https://bolt-backend-sy4c.onrender.com/dashboard')
+          click: () => mainWindow.loadURL(`${BACKEND_URL}/dashboard`)
         },
         { type: 'separator' },
         {
@@ -89,7 +92,7 @@ function createWindow() {
 
   // Load the app after a delay to ensure server is ready
   setTimeout(() => {
-    mainWindow.loadURL('https://bolt-backend-sy4c.onrender.com/activate');
+    mainWindow.loadURL(`${BACKEND_URL}/activate`);
   }, 2000);
 
   mainWindow.once('ready-to-show', () => {
