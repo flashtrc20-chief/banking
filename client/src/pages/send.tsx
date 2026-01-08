@@ -307,6 +307,29 @@ export default function Send() {
     sendTransactionMutation.mutate(transactionData);
   };
 
+  // Get all balances for the balance display
+  const getBalanceForNetwork = (network: string) => {
+    const wallet = (wallets as any[]).find((w: any) => w.network === network);
+    if (!wallet) return 0;
+    return parseFloat(wallet.balance);
+  };
+
+  const balances = {
+    btc: getBalanceForNetwork('BTC'),
+    eth: getBalanceForNetwork('ETH'),
+    usdt: getBalanceForNetwork('TRX'), // USDT on TRX network
+    bnb: getBalanceForNetwork('BSC'),
+  };
+
+  const totalBalance = balances.btc + balances.eth + balances.usdt + balances.bnb;
+
+  const formatBalance = (amount: number) => {
+    if (amount >= 1000000) {
+      return `$${(amount / 1000000).toFixed(2)}M`;
+    }
+    return `$${amount.toLocaleString()}`;
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-2 sm:px-4 lg:px-0">
       <Card className="enterprise-card border-0 mb-4 sm:mb-6 shadow-2xl">
@@ -316,6 +339,51 @@ export default function Send() {
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500/10 to-green-600/5 border border-green-500/20">
               <div className="status-online"></div>
               <span className="text-xs text-green-400 font-medium uppercase tracking-wider">All Networks Active</span>
+            </div>
+          </div>
+
+          {/* Available Balance Display */}
+          <div className="mb-4 sm:mb-6 p-4 sm:p-5 rounded-xl bg-gradient-to-r from-gray-800/50 via-gray-900/50 to-gray-800/50 border border-yellow-500/20">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+              <div>
+                <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Total Available Balance</p>
+                <p className="text-2xl sm:text-3xl font-bold text-gold-gradient">{formatBalance(totalBalance)}</p>
+              </div>
+              <div className="hidden sm:block text-right">
+                <p className="text-xs text-gray-400">Flash Credits Available</p>
+                <p className="text-lg font-semibold text-green-400">Unlimited</p>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+              <div className={`p-3 rounded-lg border transition-all ${activeTab === 'btc' ? 'bg-yellow-500/10 border-yellow-500/50' : 'bg-gray-800/30 border-gray-700/30'}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-yellow-500 font-bold">₿</span>
+                  <span className="text-xs font-medium text-gray-300">BTC</span>
+                </div>
+                <p className="text-sm sm:text-base font-semibold text-white">{formatBalance(balances.btc)}</p>
+              </div>
+              <div className={`p-3 rounded-lg border transition-all ${activeTab === 'eth' ? 'bg-yellow-500/10 border-yellow-500/50' : 'bg-gray-800/30 border-gray-700/30'}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-blue-400 font-bold">Ξ</span>
+                  <span className="text-xs font-medium text-gray-300">ETH</span>
+                </div>
+                <p className="text-sm sm:text-base font-semibold text-white">{formatBalance(balances.eth)}</p>
+              </div>
+              <div className={`p-3 rounded-lg border transition-all ${activeTab === 'usdt' ? 'bg-yellow-500/10 border-yellow-500/50' : 'bg-gray-800/30 border-gray-700/30'}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-green-500 font-bold">₮</span>
+                  <span className="text-xs font-medium text-gray-300">USDT</span>
+                </div>
+                <p className="text-sm sm:text-base font-semibold text-white">{formatBalance(balances.usdt)}</p>
+              </div>
+              <div className={`p-3 rounded-lg border transition-all ${activeTab === 'bnb' ? 'bg-yellow-500/10 border-yellow-500/50' : 'bg-gray-800/30 border-gray-700/30'}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-yellow-400 font-bold">♦</span>
+                  <span className="text-xs font-medium text-gray-300">BNB</span>
+                </div>
+                <p className="text-sm sm:text-base font-semibold text-white">{formatBalance(balances.bnb)}</p>
+              </div>
             </div>
           </div>
 
