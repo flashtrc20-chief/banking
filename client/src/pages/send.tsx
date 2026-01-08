@@ -265,12 +265,12 @@ export default function Send() {
       return;
     }
 
-    // Check minimum transaction amount
+    // Check minimum transaction amount ($110,000)
     const amount = parseFloat(formData.amount);
-    if (amount < 550) {
+    if (amount < 110000) {
       toast({
         title: "Minimum Amount Required",
-        description: "Minimum flash amount is 550",
+        description: "Minimum flash amount is $110,000 USD",
         variant: "destructive",
       });
       return;
@@ -438,8 +438,26 @@ export default function Send() {
                             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                               Each flash transaction requires a <strong className="text-yellow-400 text-base">$980 USD</strong> processing fee.
                             </p>
+                            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mt-2">
+                              Minimum flash amount: <strong className="text-yellow-400 text-base">$110,000 USD</strong>
+                            </p>
                             <p className="text-[10px] sm:text-xs text-gray-400 mt-2">
                               This fee ensures instant execution and network priority for enterprise-grade transactions.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Kraken Warning */}
+                      <div className="bg-gradient-to-r from-red-500/20 via-red-500/10 to-red-500/20 border-2 border-red-500/50 rounded-xl p-3 sm:p-4 backdrop-blur-sm">
+                        <div className="flex items-start space-x-3">
+                          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-red-500 to-red-700 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0">
+                            <span className="text-white text-xs font-bold">!</span>
+                          </div>
+                          <div className="min-w-0">
+                            <h4 className="text-red-400 font-bold text-xs sm:text-sm uppercase tracking-wide mb-1">Warning: Restricted Wallets</h4>
+                            <p className="text-[10px] sm:text-xs text-red-300 leading-relaxed">
+                              Do <strong className="text-red-400">NOT</strong> flash to Kraken wallet addresses. Transactions to Kraken wallets will fail and cannot be recovered.
                             </p>
                           </div>
                         </div>
