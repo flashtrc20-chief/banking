@@ -158,9 +158,14 @@ function AppContent() {
               <Redirect to="/home" />
             </Route>
             <Route path="/login">
-              <Redirect to="/home" />
+              <Redirect to="/dashboard" />
             </Route>
-            <Route component={NotFound} />
+            <Route path="/activate">
+              <Redirect to="/dashboard" />
+            </Route>
+            <Route>
+              <Redirect to="/dashboard" />
+            </Route>
           </Switch>
         </main>
       </div>
