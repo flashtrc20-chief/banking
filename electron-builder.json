@@ -32,14 +32,14 @@
         "arch": ["x64"]
       }
     ],
-    "icon": "client/public/bolt-logo-256.png"
+    "icon": "client/public/icon.ico"
   },
   "nsis": {
     "oneClick": false,
     "allowToChangeInstallationDirectory": true,
-    "installerIcon": "client/public/bolt-logo-256.png",
-    "uninstallerIcon": "client/public/bolt-logo-256.png",
-    "installerHeaderIcon": "client/public/bolt-logo-256.png",
+    "installerIcon": "client/public/icon.ico",
+    "uninstallerIcon": "client/public/icon.ico",
+    "installerHeaderIcon": "client/public/icon.ico",
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
     "shortcutName": "Bolt Flasher"

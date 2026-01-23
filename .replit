@@ -1,5 +1,5 @@
-modules = ["nodejs-20", "web", "python-3.12", "postgresql-16"]
-run = "npm run dev"
+modules = ["nodejs-20", "web", "postgresql-16"]
+run = "npm run start"
 hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 
 [nix]
@@ -8,7 +8,7 @@ channel = "stable-25_05"
 [deployment]
 deploymentTarget = "gce"
 build = ["npm", "run", "build"]
-run = ["node", "./dist/index.js"]
+run = ["node", "dist/index.js"]
 
 [[ports]]
 localPort = 5000
@@ -35,7 +35,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run dev"
+args = "npm run build && npm run start"
 waitForPort = 5000
 
 [workflows.workflow.metadata]

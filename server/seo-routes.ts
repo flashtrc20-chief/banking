@@ -3,7 +3,7 @@ import type { Express } from "express";
 export function registerSEORoutes(app: Express) {
   // Sitemap route for dynamic sitemap generation
   app.get('/sitemap.xml', (req, res) => {
-    const baseUrl = 'https://boltflasher.live';
+    const baseUrl = 'https://flash-software.replit.app';
     const now = new Date().toISOString();
     
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -74,7 +74,7 @@ export function registerSEORoutes(app: Express) {
 
   // Robots.txt route
   app.get('/robots.txt', (req, res) => {
-    const baseUrl = 'https://boltflasher.live';
+    const baseUrl = 'https://flash-software.replit.app';
     
     const robots = `User-agent: *
 Allow: /
