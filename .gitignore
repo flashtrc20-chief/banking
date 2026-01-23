@@ -28,6 +28,12 @@ build/
 Thumbs.db
 
 # IDE files
+.local/
+.config/
+.vercel/
+
+# Documentation markdown files
+*.md
 .vscode/
 .idea/
 *.swp
@@ -36,5 +42,7 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+.vercel
 
 .vercel
