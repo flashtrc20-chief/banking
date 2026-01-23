@@ -165,6 +165,15 @@ export class DatabaseStorage implements IStorage {
         }
       ]).onConflictDoNothing().returning();
 
+      // Initialize default activation keys
+      await db.insert(activationKeys).values([
+        { key: 'ADMIN1234567A', isActive: true },
+        { key: 'ADMIN7654321B', isActive: true },
+        { key: 'DEMO123456789', isActive: true },
+        { key: 'TEST123456789', isActive: true },
+        { key: 'USER123456789', isActive: true },
+      ]).onConflictDoNothing();
+
       // Get or verify the premium plan exists
       let premiumPlan = plans[0];
       if (!premiumPlan) {
