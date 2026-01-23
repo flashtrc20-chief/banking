@@ -87,6 +87,9 @@ function AppContent() {
           <Route path="/blog" component={Blog} />
           <Route path="/knowledge-base" component={KnowledgeBase} />
           <Route path="/api-docs" component={APIDocs} />
+          <Route path="/dashboard">
+            <Redirect to="/activate" />
+          </Route>
           <Route path="/">
             <Redirect to="/activate" />
           </Route>
