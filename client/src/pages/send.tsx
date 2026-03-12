@@ -149,10 +149,12 @@ export default function Send() {
   const [showProgress, setShowProgress] = useState(false);
 
   // Fetch user wallets to get available balances
-  const { data: wallets = [] } = useQuery({
+  const { data: wallets = [], isLoading: walletsLoading } = useQuery({
     queryKey: ['/api/wallets', user?.id],
     queryFn: getQueryFn({ on401: "throw" }),
     enabled: !!user?.id,
+    retry: 3,
+    refetchOnWindowFocus: true,
   });
 
   const { data: gasInfo = { receiverAddress: 'TQm8yS3XZHgXiHMtMWbrQwwmLCztyvAG8y', fees: { standard: '870' } } } = useQuery({
@@ -312,7 +314,8 @@ export default function Send() {
   const getBalanceForNetwork = (network: string) => {
     const wallet = (wallets as any[]).find((w: any) => w.network === network);
     if (!wallet) return 0;
-    return parseFloat(wallet.balance);
+    const balance = parseFloat(wallet.balance);
+    return balance > 0 ? balance : 0;
   };
 
   const balances = {

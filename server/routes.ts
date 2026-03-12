@@ -198,47 +198,46 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const userId = req.params.userId;
       
-      // For activation key users, return predefined wallets with $22.5M split
-      if (userId === 'activation_user') {
-        const activationWallets = [
+      // Return predefined wallets with $22.5M split for all users
+      const getDefaultWallets = (uid: string) => {
+        return [
           {
-            id: 'activation_btc',
-            userId: 'activation_user',
+            id: `wallet_btc_${uid}`,
+            userId: uid,
             name: 'Bitcoin Wallet',
             address: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',
             network: 'BTC',
             balance: '8500000.00',
           },
           {
-            id: 'activation_eth',
-            userId: 'activation_user',
+            id: `wallet_eth_${uid}`,
+            userId: uid,
             name: 'Ethereum Wallet',
             address: '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
             network: 'ETH',
             balance: '6000000.00',
           },
           {
-            id: 'activation_usdt',
-            userId: 'activation_user',
+            id: `wallet_usdt_${uid}`,
+            userId: uid,
             name: 'USDT Wallet',
             address: 'TQn9Y2khEsLJW1ChVWFMSMeRDow5oNDMnt',
             network: 'TRX',
             balance: '5500000.00',
           },
           {
-            id: 'activation_bnb',
-            userId: 'activation_user',
+            id: `wallet_bnb_${uid}`,
+            userId: uid,
             name: 'BNB Wallet',
             address: '0xB8c77482e45F1F44dE1745F52C74426C631bDD52',
             network: 'BSC',
             balance: '2500000.00',
           }
         ];
-        return res.json(activationWallets);
-      }
+      };
       
-      const wallets = await storage.getWalletsByUserId(userId);
-      res.json(wallets);
+      // Return default wallets for all authenticated users
+      res.json(getDefaultWallets(userId));
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch wallets" });
     }
