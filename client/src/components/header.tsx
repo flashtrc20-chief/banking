@@ -5,7 +5,7 @@ import { BoltLogo } from './bolt-logo';
 import { Link, useLocation } from 'wouter';
 import { ThemeToggle } from './ThemeToggle';
 import { useLanguage } from './MultiLanguage';
-import { Bell, Globe, Shield, TrendingUp } from 'lucide-react';
+import { Bell, Globe, Shield } from 'lucide-react';
 
 export default function Header() {
   const { user } = useAuth();
@@ -114,19 +114,6 @@ export default function Header() {
         {/* Stats Bar */}
         <div className="flex items-center justify-between pt-3 border-t border-yellow-500/10">
           <div className="flex items-center gap-6">
-            {/* Balance Display - Hidden on Mobile */}
-            <div className="hidden sm:flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-gradient-to-br from-green-500/10 to-green-600/5">
-                <TrendingUp className="w-4 h-4 text-green-500" />
-              </div>
-              <div>
-                <p className="text-[10px] text-gray-500 uppercase tracking-wider">Portfolio Value</p>
-                <p className="text-lg sm:text-xl font-bold text-green-500 gold-text-glow">
-                  ${calculateBalance().toLocaleString()}.00
-                </p>
-              </div>
-            </div>
-            
             {/* Network Status */}
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500/10 to-green-600/5 border border-green-500/20">
               <div className="status-online"></div>
