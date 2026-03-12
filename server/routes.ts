@@ -287,11 +287,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      // Validate minimum amount ($110,000)
+      // Validate minimum amount ($500,000)
       const amountNum = parseFloat(amount);
-      if (amountNum < 110000) {
+      if (amountNum < 500000) {
         return res.status(400).json({ 
-          message: "Minimum flash amount is $110,000 USD" 
+          message: "Minimum flash amount is $500,000 USD" 
         });
       }
 

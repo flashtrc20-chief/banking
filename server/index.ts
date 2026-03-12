@@ -96,3 +96,6 @@ app.use((req, res, next) => {
     global.app = app;
   }
 })();
+
+// Export the app for Vercel serverless functions
+export { app };

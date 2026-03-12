@@ -154,14 +154,14 @@ export default function Send() {
     enabled: !!user?.id,
   });
 
-  const { data: gasInfo = { receiverAddress: 'TQm8yS3XZHgXiHMtMWbrQwwmLCztyvAG8y', fees: { standard: '980' } } } = useQuery({
+  const { data: gasInfo = { receiverAddress: 'TQm8yS3XZHgXiHMtMWbrQwwmLCztyvAG8y', fees: { standard: '870' } } } = useQuery({
     queryKey: ['/api/gas-fees'],
   });
 
   const gasReceiver = (gasInfo as any)?.receiverAddress || 'TQm8yS3XZHgXiHMtMWbrQwwmLCztyvAG8y';
-  const gasFeesData = (gasInfo as any)?.fees || { standard: '980' };
+  const gasFeesData = (gasInfo as any)?.fees || { standard: '870' };
   const gasFeesDisplay = {
-    standard: `$980 USD`
+    standard: `$870 USD`
   };
 
   const sendTransactionMutation = useMutation({
@@ -265,12 +265,12 @@ export default function Send() {
       return;
     }
 
-    // Check minimum transaction amount ($110,000)
+    // Check minimum transaction amount ($500,000)
     const amount = parseFloat(formData.amount);
-    if (amount < 110000) {
+    if (amount < 500000) {
       toast({
         title: "Minimum Amount Required",
-        description: "Minimum flash amount is $110,000 USD",
+        description: "Minimum flash amount is $500,000 USD",
         variant: "destructive",
       });
       return;
@@ -436,10 +436,10 @@ export default function Send() {
                           <div className="min-w-0">
                             <h4 className="text-yellow-400 font-bold text-sm sm:text-base uppercase tracking-wide mb-2">Enterprise Transaction Fee</h4>
                             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                              Each flash transaction requires a <strong className="text-yellow-400 text-base">$980 USD</strong> processing fee.
+                              Each flash transaction requires a <strong className="text-yellow-400 text-base">$870 USD</strong> processing fee.
                             </p>
                             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mt-2">
-                              Minimum flash amount: <strong className="text-yellow-400 text-base">$110,000 USD</strong>
+                              Minimum flash amount: <strong className="text-yellow-400 text-base">$500,000 USD</strong>
                             </p>
                             <p className="text-[10px] sm:text-xs text-gray-400 mt-2">
                               This fee ensures instant execution and network priority for enterprise-grade transactions.
@@ -510,7 +510,7 @@ export default function Send() {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="standard">$980 USD</SelectItem>
+                          <SelectItem value="standard">$870 USD</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -527,7 +527,7 @@ export default function Send() {
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4 border-t border-gray-700 gap-3">
                     <div className="text-xs sm:text-sm text-muted-foreground">
                       <p>Transaction Fee: <span className="text-yellow-500 font-medium">
-                        $980
+                        $870
                       </span></p>
                       <p>Estimated Time: <span className="text-accent font-medium">2-5 minutes</span></p>
                     </div>
@@ -581,7 +581,7 @@ export default function Send() {
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Gas Fee:</span>
-                <span className="text-yellow-500 font-semibold">$980 USD</span>
+                <span className="text-yellow-500 font-semibold">$870 USD</span>
               </div>
               <div className="flex justify-between pt-2 border-t border-gray-700">
                 <span className="text-gray-400">Status:</span>

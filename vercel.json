@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
+  "routes": [
+    {
+      "src": "/api/auth/validate-key",
+      "dest": "/api/auth/validate-key.mjs"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/handler.mjs?path=/$1"
+    },
+    {
+      "src": "/google4c248d7f08aff326.html",
+      "dest": "/api/handler.mjs"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/public/index.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "VERCEL": "true"
+  }
+}

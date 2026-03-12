@@ -1,0 +1,26 @@
+{
+  "appId": "com.boltcryptoflasher.app",
+  "appName": "Bolt Flasher",
+  "webDir": "../dist/public",
+  "server": {
+    "url": "https://bolt-crypto-flasher.vercel.app",
+    "cleartext": false
+  },
+  "ios": {
+    "contentInset": "automatic"
+  },
+  "android": {
+    "buildOptions": {
+      "keystorePath": "../keystore.jks",
+      "keystorePassword": "password",
+      "keystoreAlias": "key0",
+      "keystoreAliasPassword": "password",
+      "signingMethod": "jarsigner"
+    }
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchFadeOutDuration": 3000
+    }
+  }
+}

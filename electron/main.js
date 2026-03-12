@@ -1,11 +1,7 @@
-const { app, BrowserWindow, Menu, shell, dialog } = require('electron');
+const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
-const { spawn } = require('child_process');
 
-// Check if running in development mode
-const isDev = !app.isPackaged;
 let mainWindow;
-let serverProcess;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -19,15 +15,15 @@ function createWindow() {
       enableRemoteModule: false,
       webSecurity: true
     },
-    icon: path.join(__dirname, '..', 'client', 'public', 'bolt-logo-256.png'),
+    icon: path.join(__dirname, 'icon.ico'),
     titleBarStyle: 'default',
     show: false,
     title: 'Bolt Flasher - Professional Cryptocurrency Flash Platform',
     backgroundColor: '#1a1a1a'
   });
 
-  // Backend URL configuration
-  const BACKEND_URL = 'https://85b1ffa3-ccc6-4071-b06d-07e8e126e0a0-00-1tqab4sds8smw.worf.replit.dev';
+  // Load the production URL
+  const PRODUCTION_URL = 'https://bolt-crypto-flasher.vercel.app';
   
   // Set custom menu
   const menu = Menu.buildFromTemplate([
@@ -36,11 +32,11 @@ function createWindow() {
       submenu: [
         {
           label: 'Home',
-          click: () => mainWindow.loadURL(`${BACKEND_URL}/home`)
+          click: () => mainWindow.loadURL(`${PRODUCTION_URL}/home`)
         },
         {
           label: 'Dashboard',
-          click: () => mainWindow.loadURL(`${BACKEND_URL}/dashboard`)
+          click: () => mainWindow.loadURL(`${PRODUCTION_URL}/dashboard`)
         },
         { type: 'separator' },
         {
@@ -87,19 +83,11 @@ function createWindow() {
 
   Menu.setApplicationMenu(menu);
 
-  // Start the Express server
-  startServer();
-
-  // Load the app after a delay to ensure server is ready
-  setTimeout(() => {
-    mainWindow.loadURL(`${BACKEND_URL}/activate`);
-  }, 2000);
+  // Load the production app
+  mainWindow.loadURL(PRODUCTION_URL);
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
-    if (isDev) {
-      mainWindow.webContents.openDevTools();
-    }
   });
 
   // Handle external links
