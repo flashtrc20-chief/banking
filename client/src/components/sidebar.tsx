@@ -159,27 +159,6 @@ export default function Sidebar() {
           })}
         </nav>
 
-        {/* Premium Features Section - Hidden on Mobile for Space */}
-        <div className="hidden sm:block px-4 py-4 border-t border-yellow-500/10">
-          <div className="px-3 py-2">
-            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-medium mb-2">Platform Status</p>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-[11px]">
-                <span className="text-gray-400">Network</span>
-                <span className="text-green-400 font-medium">Operational</span>
-              </div>
-              <div className="flex items-center justify-between text-[11px]">
-                <span className="text-gray-400">API Status</span>
-                <span className="text-green-400 font-medium">Connected</span>
-              </div>
-              <div className="flex items-center justify-between text-[11px]">
-                <span className="text-gray-400">Security</span>
-                <span className="text-yellow-500 font-medium">Max Level</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Logout Section - No Overlap */}
         <div className="px-4 py-4 sm:py-6 border-t border-yellow-500/10 mt-auto bg-gray-900/50">
           <button
