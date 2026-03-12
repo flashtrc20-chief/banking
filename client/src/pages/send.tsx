@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
-import { apiRequest } from '@/lib/queryClient';
+import { apiRequest, getQueryFn } from '@/lib/queryClient';
 import { Copy, QrCode, ExternalLink } from 'lucide-react';
 import QRCode from 'qrcode';
 import TransactionCalculator from '@/components/TransactionCalculator';
@@ -151,6 +151,7 @@ export default function Send() {
   // Fetch user wallets to get available balances
   const { data: wallets = [] } = useQuery({
     queryKey: ['/api/wallets', user?.id],
+    queryFn: getQueryFn({ on401: "throw" }),
     enabled: !!user?.id,
   });
 
